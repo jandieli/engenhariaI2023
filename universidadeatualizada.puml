@@ -1,0 +1,44 @@
+@startuml
+/'caso de uso do sistema universidade'/
+left to right direction
+
+  actor Reitor as re
+  actor Professor as prof
+  actor Coordenador as coo
+  actor Finaceiro as fi
+  actor Aluno as al
+  actor Funcionário as fun 
+  actor Vigilante as vi
+  actor Faxineiro as fa 
+
+  usecase "Ministra aula" as ac1
+  usecase "Receber" as ac2
+  usecase "Orientar matrícula" as ac3
+  usecase "Auditar curso" as ac4
+  usecase "Administrar universidade" as ac5
+  usecase "Representar universidade" as ac6
+  usecase "Assistir aula" as uc7
+  usecase "Pagar" as uc8
+  usecase "Prestar serviço" as uc9
+  usecase "Atender universidade" as op1
+  usecase "Gerenciar receitas e dispesas" as uc11
+  uc7.> ac1 :<<nclude>>
+  prof -- ac1
+  prof -- ac2
+  coo -- ac3
+  coo -- ac4
+  re -- ac5
+  re -- ac6
+  al -- uc8
+  al -- uc7
+  fi -- uc11
+  fun -- uc9
+  op1--|> uc9
+  ac2--|>uc11
+  uc8--|>uc11
+  coo--|>prof
+  re --|>prof
+  fa --|>fun
+  vi --|>fun
+  fi --|>fun
+@enduml
